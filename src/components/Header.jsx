@@ -5,8 +5,8 @@ import NavBar from './NavBar';
 
 const Header = () => {
     return (
-        <header className='sticky top-0 flex flex-col z-10 bg-white'>
-            <div className='flex flex-row items-center my-2 px-4'>
+        <header className='sticky top-0 sm:flex sm:flex-col z-10 bg-white'>
+            <div className='flex flex-row items-center my-4 sm:my-2 px-4'>
                 <Link href='/'>
                     <Image
                         priority
@@ -17,8 +17,8 @@ const Header = () => {
                     />
                 </Link>
                 <div className=' text-center flex-auto justify-self-center'>
-                    <div className='text-4xl font-bold'>Om Shanthi Theertham</div>
-                    <div className='italic'>Mrtyor-Maa Amrtam Gamaya</div>
+                    <div className='text-2xl sm:text-4xl font-bold'>Om Shanthi Theertham</div>
+                    <div className='text-xs sm:text-xl italic'>Mrtyor-Maa Amrtam Gamaya</div>
                 </div>
             </div>
             <NavBar />

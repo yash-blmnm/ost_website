@@ -18,7 +18,6 @@ const AsideBar = () => {
     sections.current.forEach((section) => {
       const sectionOffsetTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
-      console.log(pageYOffset, sectionOffsetTop)
 
       if (pageYOffset >= sectionOffsetTop && pageYOffset < sectionOffsetTop + sectionHeight) {
         newActiveSection = section.id;
@@ -29,7 +28,7 @@ const AsideBar = () => {
   };
 
   useEffect(() => {
-    setActiveSection(sectionHeadings[0][0])
+    sectionHeadings.length && setActiveSection(sectionHeadings[0][0])
     sections.current = document.querySelectorAll('[data-section]');
     window.addEventListener('scroll', handleScroll);
 
@@ -45,7 +44,6 @@ const AsideBar = () => {
           const {heading} = content;
           return [heading.toLowerCase().replaceAll(' ', '_'), heading]
         });
-        console.log(headingIdArray)
         return headingIdArray
       }; break;
       default: return [];
@@ -54,7 +52,7 @@ const AsideBar = () => {
 
   const activeStyle = 'text-secondary-orange font-bold';
   return (
-    <aside className={`sticky basis-1/5 top-[${HEADER_OFFSET}px] h-[calc(85vh-${HEADER_OFFSET}px)] p-8  overflow-y-scroll text-sm`}>
+    <aside className={`hidden lg:flex sticky basis-1/5 top-[${HEADER_OFFSET}px] h-[calc(85vh-${HEADER_OFFSET}px)] p-8  overflow-y-scroll text-sm`}>
       <div className="flex flex-col gap-2 ml-8">
         <span className="font-semibold text-xl">On this Page</span>
         {sectionHeadings.map((heading, index) => {
