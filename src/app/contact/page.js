@@ -3,12 +3,10 @@
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 
-export default function page() {
+export default function Page() {
   const {
-    control,
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -119,7 +117,7 @@ export default function page() {
         </fieldset>
 
         <input
-          className="border border-gray-700 bg-gray-600 text-gray-100 my-2"
+          className="border border-gray-700 bg-gray-600 text-gray-100 my-2 cursor-pointer"
           type="submit"
         />
       </form>
