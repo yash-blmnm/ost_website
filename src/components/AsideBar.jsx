@@ -52,7 +52,7 @@ const AsideBar = () => {
 
   const activeStyle = 'text-secondary-orange font-bold';
   return (
-    <aside className={`hidden lg:flex sticky basis-1/5 top-[${HEADER_OFFSET}px] h-[calc(85vh-${HEADER_OFFSET}px)] p-8  overflow-y-scroll text-sm`}>
+    <aside className={`hidden lg:flex sticky basis-1/5 top-[172px] h-[calc(85vh-${HEADER_OFFSET}px)] p-8  overflow-y-scroll text-sm`}>
       <div className="flex flex-col gap-2 ml-8">
         <span className="font-semibold text-xl">On this Page</span>
         {sectionHeadings.map((heading, index) => {
