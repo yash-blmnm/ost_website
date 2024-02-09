@@ -75,4 +75,7 @@
     list-style: disc;
     margin-bottom: none;
   }
+p+h2 {
+  margin-top: 2rem;
+}
 }
