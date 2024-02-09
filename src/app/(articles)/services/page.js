@@ -1,19 +1,8 @@
 import { servicesContent } from "../../../lib/services";
-// import { getContentData } from "@/lib/getContent";
-import React from "react";
-
-// export async function getStaticProps({ params }) {
-//   const postData = await getContentData("services");
-//   return {
-//     props: {
-//       postData,
-//     },
-//   };
-// }
+import Image from "next/image";
+import React, { Fragment } from "react";
 
 export const page = ({}) => {
-  //   console.log("test");
-  //   console.log(postData);
   return (
     <div className="w-full lg:w-[80%]">
       {servicesContent.map((eachContent, contextidx) => {
@@ -28,19 +17,21 @@ export const page = ({}) => {
           >
             <div className="text-4xl font-bold mb-8">{heading}</div>
             {content &&
-              content.map((contentValue, index) =>
-                Array.isArray(contentValue) ? (
-                  <ul>
-                    {contentValue.map((listVal, indexVal) => (
-                      <li key={indexVal}>{listVal}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p key={index} className="text-xl mb-12 text-justify">
-                    {contentValue}
-                  </p>
-                )
-              )}
+              content.map((contentValue, index) => (
+                <Fragment key={index}>
+                  {Array.isArray(contentValue) ? (
+                    <ul>
+                      {contentValue.map((listVal, indexVal) => (
+                        <li key={indexVal}>{listVal}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p key={index} className="text-xl mb-12 text-justify">
+                      {contentValue}
+                    </p>
+                  )}
+                </Fragment>
+              ))}
             {imageContent && imageContent.length ? (
               <div className="flex flex-wrap gap-y-4 justify-between">
                 {imageContent.map((imgObj, index) => (

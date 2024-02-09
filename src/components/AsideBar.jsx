@@ -65,6 +65,7 @@ const AsideBar = () => {
         <span className="font-semibold text-xl">On this Page</span>
         {sectionHeadings.map((heading, index) => {
           const [headingId, title] = heading;
+          console.log(activeSection, headingId)
           return (<Link 
             className={activeSection === headingId ? activeStyle : ''} 
             key={index}
