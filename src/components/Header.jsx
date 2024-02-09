@@ -17,8 +17,8 @@ const Header = () => {
                     />
                 </Link>
                 <div className=' text-center flex-auto justify-self-center'>
-                    <div className='text-2xl sm:text-4xl font-bold'>Om Shanthi Theertham</div>
-                    <div className='text-xs sm:text-xl italic'>Mrtyor-Maa Amrtam Gamaya</div>
+                    <h1 className='text-2xl sm:text-4xl font-bold'>Om Shanthi Theertham</h1>
+                    <h3 className='text-xs sm:text-xl italic'>Mrtyor-Maa Amrtam Gamaya</h3>
                 </div>
             </div>
             <NavBar />

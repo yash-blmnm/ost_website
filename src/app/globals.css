@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-3xl;
+    @apply font-semibold;
+  }
+
+  h2 {
+    @apply text-3xl;
+    @apply font-semibold;
+    margin: 0 0 1rem;
+  }
+
+  /* ... */
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -43,4 +57,22 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+.no-tailwind {
+  all: unset;
+
+  ul {
+    list-style: circle;
+    margin: 1rem;
+
+  }
+
+  ul>li {
+    padding-left: 1rem;
+  }
+
+  ul>ul {
+    list-style: disc;
+    margin-bottom: none;
+  }
 }

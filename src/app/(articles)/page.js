@@ -14,10 +14,10 @@ export default function page() {
             id={contentId}
             className="mb-16"
           >
-            <div className="text-4xl font-bold mb-8">{heading}</div>
+            <h2 className="mb-8">{heading}</h2>
             {content &&
               content.map((contentValue, index) => (
-                <p key={index} className="text-xl mb-12 text-justify">
+                <p key={index} className="text-l mb-4 text-justify">
                   {contentValue}
                 </p>
               ))}
