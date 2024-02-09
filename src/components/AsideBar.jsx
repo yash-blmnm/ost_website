@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { HEADER_OFFSET } from '../lib/constants';
 import { aboutContent } from '@/lib/about';
+import { servicesContent } from '@/lib/services';
 
 const AsideBar = () => {
   const pathname = usePathname();
@@ -41,6 +42,13 @@ const AsideBar = () => {
     switch(pathname) {
       case '/' : {
         const headingIdArray = aboutContent.map(content => { 
+          const {heading} = content;
+          return [heading.toLowerCase().replaceAll(' ', '_'), heading]
+        });
+        return headingIdArray
+      }; break;
+      case '/services' : {
+        const headingIdArray = servicesContent.map(content => { 
           const {heading} = content;
           return [heading.toLowerCase().replaceAll(' ', '_'), heading]
         });
