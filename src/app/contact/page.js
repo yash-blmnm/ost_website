@@ -56,19 +56,60 @@ export default function Page() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <fieldset className="flex flex-col">
-            <label htmlFor="fullName">
-              Full Name
-              <sup className={`text-2xs ${errors.fullName && "text-red-600"}`}>
+            <label htmlFor="firstName">
+              First Name
+              <sup className={`text-2xs ${errors.firstName && "text-red-600"}`}>
                 *
               </sup>
             </label>
             <input
               className="border border-gray-800 outline-none"
-              {...register("fullName", { required: true })}
+              {...register("firstName", { required: true })}
             />
             <span
               className={`${
-                errors.fullName ? "text-red-600" : "invisible"
+                errors.firstName ? "text-red-600" : "invisible"
+              } text-xs`}
+            >
+              This field is required
+            </span>
+          </fieldset>
+
+          <fieldset className="flex flex-col">
+            <label htmlFor="lastName">
+              Last Name
+              <sup className={`text-2xs ${errors.lastName && "text-red-600"}`}>
+                *
+              </sup>
+            </label>
+            <input
+              className="border border-gray-800 outline-none"
+              {...register("lastName", { required: true })}
+            />
+            <span
+              className={`${
+                errors.lastName ? "text-red-600" : "invisible"
+              } text-xs`}
+            >
+              This field is required
+            </span>
+          </fieldset>
+
+          <fieldset className="flex flex-col">
+            <label htmlFor="phone">
+              Phone
+              <sup className={`text-2xs ${errors.phone && "text-red-600"}`}>
+                *
+              </sup>
+            </label>
+            <input
+              type="phone"
+              className="border border-gray-800 outline-none"
+              {...register("phone", { required: true })}
+            />
+            <span
+              className={`${
+                errors.email ? "text-red-600" : "invisible"
               } text-xs`}
             >
               This field is required
@@ -78,7 +119,7 @@ export default function Page() {
           <fieldset className="flex flex-col">
             <label htmlFor="replyTo">
               Email
-              <sup className={`text-2xs ${errors.fullName && "text-red-600"}`}>
+              <sup className={`text-2xs ${errors.email && "text-red-600"}`}>
                 *
               </sup>
             </label>
@@ -89,27 +130,7 @@ export default function Page() {
             />
             <span
               className={`${
-                errors.fullName ? "text-red-600" : "invisible"
-              } text-xs`}
-            >
-              This field is required
-            </span>
-          </fieldset>
-
-          <fieldset className="flex flex-col">
-            <label htmlFor="subject">
-              Subject
-              <sup className={`text-2xs ${errors.fullName && "text-red-600"}`}>
-                *
-              </sup>
-            </label>
-            <input
-              className="border border-gray-800 outline-none"
-              {...register("subject", { required: true })}
-            />
-            <span
-              className={`${
-                errors.fullName ? "text-red-600" : "invisible"
+                errors.email ? "text-red-600" : "invisible"
               } text-xs`}
             >
               This field is required
@@ -124,7 +145,7 @@ export default function Page() {
               </sup>
             </label>
             <textarea
-              rows={5}
+              rows={3}
               className="border border-gray-800 outline-none resize-none"
               {...register("message", { required: true })}
             />

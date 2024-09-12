@@ -79,3 +79,6 @@ p+h2 {
   margin-top: 2rem;
 }
 }
+section:first-child h2 {
+  margin-top: 0;
+}

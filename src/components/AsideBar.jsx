@@ -4,8 +4,8 @@ import { useRef, useState, useEffect, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { HEADER_OFFSET } from '../lib/constants';
-import { aboutContent } from '@/lib/about';
-import { servicesContent } from '@/lib/services';
+import { aboutContent } from '../lib/about';
+import { servicesContent } from '../lib/services';
 
 const AsideBar = () => {
   const pathname = usePathname();
@@ -13,10 +13,11 @@ const AsideBar = () => {
   const sections = useRef([]);
 
   const handleScroll = () => {
-    const pageYOffset = window.scrollY + HEADER_OFFSET;
+    const pageYOffset = window.scrollY;
     let newActiveSection = null;
 
     sections.current.forEach((section) => {
+
       const sectionOffsetTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
 
@@ -65,7 +66,7 @@ const AsideBar = () => {
         <span className="font-semibold text-xl">On this Page</span>
         {sectionHeadings.map((heading, index) => {
           const [headingId, title] = heading;
-          console.log(activeSection, headingId)
+
           return (<Link 
             className={activeSection === headingId ? activeStyle : ''} 
             key={index}

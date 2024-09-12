@@ -1,4 +1,4 @@
-export const HEADER_OFFSET = 172
+export const HEADER_OFFSET = 220;
 
 export const NAV_LINKS = [
   {

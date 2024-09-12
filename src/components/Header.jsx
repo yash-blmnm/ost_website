@@ -6,13 +6,16 @@ import NavBar from './NavBar';
 const Header = () => {
     return (
         <header className='sticky top-0 sm:flex sm:flex-col z-10 bg-white'>
-            <div className='flex flex-row items-center my-4 sm:my-2 px-4'>
+            <div className='flex flex-row justify-center py-1  bg-tertiary-orange'>
+                <div className='width-full text-primary-text'><span className=''>Phone:</span> <b className=''>1300 VIMUKTI / 1300 846 858;</b> <span className=''>Email:</span> <b className=''>info@omshanthi.org.au</b></div>
+            </div>
+            <div className='flex flex-row items-center my-4 sm:py-2 px-10'>
                 <Link href='/'>
                     <Image
                         priority
-                        src="/images/sample_logo.png"
-                        height={100}
-                        width={100}
+                        src="/images/logo.png"
+                        height={80}
+                        width={80}
                         alt="logo"
                     />
                 </Link>
