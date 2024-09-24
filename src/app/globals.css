@@ -82,3 +82,11 @@ p+h2 {
 section:first-child h2 {
   margin-top: 0;
 }
+.team-member-item {
+  width: 20% !important;
+}
+
+.team-image {
+  height: 100px !important;
+  width: 100px !important;
+}

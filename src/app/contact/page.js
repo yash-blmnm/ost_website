@@ -45,7 +45,7 @@ export default function Page() {
           </h3>
           <p>
             We have received your enquiry and will respond to you shortly. For
-            urgent enquiries please call us on this telephone number.
+            urgent enquiries please call us on 1300 VIMUKTI (1300 846 858).
           </p>
           <p>Contact Number - 1300 VIMUKTI (1300 846 8584)</p>
         </div>

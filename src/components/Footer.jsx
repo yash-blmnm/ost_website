@@ -10,7 +10,7 @@ const Footer = () => {
                     <Link href='/disclaimer'>Disclaimer</Link>
                     <Link href='/contact'>Connect with Us</Link>		
                 </nav>
-                <cite className='text-center text-xs'>Copyright @ 2022 Australian Dhaarmic Seva Mandali Ltd. ABN: 95657329416 – Trading as Om Shanthi Theertham​</cite>
+                <cite className='text-center text-xs'>Copyright @ 2022 Australian Dhaarmic Seva Mandali Ltd. ABN: 95657329416 Trading as Om Shanthi Theertham​</cite>
             </div>
         </footer>
     );
