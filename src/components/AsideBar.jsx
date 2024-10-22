@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useState, useEffect, useMemo } from 'react';
-import { usePathname } from 'next/navigation';
+import { useRef, useState, useMemo, useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { HEADER_OFFSET } from '../lib/constants';
 import { aboutContent } from '../lib/about';
@@ -9,35 +9,29 @@ import { servicesContent } from '../lib/services';
 
 const AsideBar = () => {
   const pathname = usePathname();
+  const sectionParam = useSearchParams().get('section');
   const [activeSection, setActiveSection] = useState('');
-  const sections = useRef([]);
 
-  const handleScroll = () => {
-    const pageYOffset = window.scrollY;
-    let newActiveSection = null;
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 215; // Adjust this based on your fixed header height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
 
-    sections.current.forEach((section) => {
-
-      const sectionOffsetTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-
-      if (pageYOffset >= sectionOffsetTop && pageYOffset < sectionOffsetTop + sectionHeight) {
-        newActiveSection = section.id;
-      }
-    });
-
-    setActiveSection(newActiveSection);
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth', // Smooth scrolling behavior
+      });
+      setActiveSection(id);
+    }
   };
 
   useEffect(() => {
-    sectionHeadings.length && setActiveSection(sectionHeadings[0][0])
-    sections.current = document.querySelectorAll('[data-section]');
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    if (sectionParam) {
+      scrollToSection(sectionParam);
+    }
+  }, [sectionParam])
 
   const sectionHeadings = useMemo(() =>{
     switch(pathname) {
@@ -57,7 +51,7 @@ const AsideBar = () => {
       }; break;
       default: return [];
     }
-  })
+  }, [pathname])
 
   const activeStyle = 'text-secondary-orange font-bold';
   return (
@@ -67,13 +61,14 @@ const AsideBar = () => {
         {sectionHeadings.map((heading, index) => {
           const [headingId, title] = heading;
 
-          return (<Link 
+          return (<div className='cursor-pointer' key={headingId}><a 
             className={activeSection === headingId ? activeStyle : ''} 
             key={index}
-            href={`#${headingId}`}
+            // href={`#${headingId}`}
+            onClick={() => scrollToSection(headingId)}
           >
               {title}
-          </Link>)
+          </a></div>)
         })}
       </div>
     </aside>

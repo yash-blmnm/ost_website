@@ -2,14 +2,22 @@ import React from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import NavBar from './NavBar';
+import { Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const Header = () => {
     return (
         <header className='sticky top-0 sm:flex sm:flex-col z-10 bg-white'>
             <div className='flex flex-row justify-center py-1  bg-tertiary-orange'>
-                <div className='width-full text-primary-text'><span className=''>Phone:</span> <b className=''>1300 VIMUKTI / 1300 846 858</b> &nbsp;&nbsp; <span className=''>Email:</span> <b className=''>info@omshanthi.org.au</b></div>
+                <div className='flex flex-row items-center width-full text-primary-text'>
+                    <Phone size={16} />&nbsp;
+                    <b className=''>1300 VIMUKTI / 1300 846 858</b>
+                    &nbsp;&nbsp;
+                    <Mail size={16} />&nbsp;
+                    <b className=''>info@omshanthi.org.au</b>
+                </div>
             </div>
-            <div className='flex flex-row items-center my-4 sm:py-2 px-10'>
+            <div className='flex flex-row items-center sm:py-2 px-10'>
                 <Link href='/'>
                     <Image
                         priority
