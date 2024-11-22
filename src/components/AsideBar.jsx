@@ -1,9 +1,7 @@
 'use client'
 
-import { useRef, useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import { HEADER_OFFSET } from '../lib/constants';
 import { aboutContent } from '../lib/about';
 import { servicesContent } from '../lib/services';
 

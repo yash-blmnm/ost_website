@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
@@ -13,6 +13,13 @@ export default function Page() {
   } = useForm();
 
   const contactForm = useRef();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling behavior
+    });
+  }, []);
 
   const onSubmit = (data) => {
     emailjs
@@ -36,8 +43,8 @@ export default function Page() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center m-12">
-      <h1 className="text-3xl font-semibold">Contact Us</h1>
+    <section className="flex flex-col items-center justify-center my-12 mx-8 sm:my-8 sm:mx-12">
+      <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
       {isSubmitSuccessful ? (
         <div className="flex flex-col gap-2 my-8 h-80">
           <h3 className="self-center text-2xl pb-4">
@@ -52,7 +59,7 @@ export default function Page() {
       ) : (
         <form
           ref={contactForm}
-          className="flex flex-col lg:w-[50%] gap-1"
+          className="flex flex-col w-[80%] lg:w-[50%] gap-1"
           onSubmit={handleSubmit(onSubmit)}
         >
           <fieldset className="flex flex-col">
